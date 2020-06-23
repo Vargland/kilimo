@@ -1,2 +1,1 @@
-# kalima
-Kalima weather app
+# Kilimo
