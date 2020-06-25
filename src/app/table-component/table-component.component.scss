@@ -1,0 +1,15 @@
+.main-page-component {
+  &__search-bar {
+    font-size: 14px;
+    padding-left: 14px; //FIX
+    width: -webkit-fill-available; //FIX
+  }
+
+  &__table {
+    width: 100%;
+
+    &-image {
+      height: 15em;
+    }
+  }
+}
