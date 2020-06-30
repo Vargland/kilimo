@@ -1,23 +1,26 @@
-<div class="main-page-component">
-  <div class="mat-elevation-z8">
-    <mat-form-field class="main-page-component__search-bar">
-      <mat-label> Search: </mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+<div class="table-component">
+  <div class="table-component__search-bar">
+    <mat-form-field class="table-component__search-bar__input">
+      <mat-label> Search </mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ground name">
     </mat-form-field>
-    <table mat-table [dataSource]="matTableDataSource" class="main-page-component__table" matSort>
-      <ng-container matColumnDef="image">
+  </div>
+  <div class="mat-elevation-z8">
+    
+    <table mat-table [dataSource]="matTableDataSource" class="table-component__table" matSort>
+      <ng-container matColumnDef="thumbnail">
         <th mat-header-cell *matHeaderCellDef> Map </th>
-        <td mat-cell *matCellDef="let data"> 
-          <img class="main-page-component__table-image" src="{{ data.image }}">
+        <td (click)="goToPage(data.id)" class="table-component__table-link" mat-cell *matCellDef="let data"> 
+          <img class="table-component__table-image" src="{{ data.image }}">
         </td>
       </ng-container>
   
-      <ng-container matColumnDef="country">
+      <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
         <td mat-cell *matCellDef="let data"> {{ data.fieldName }} </td>
       </ng-container>
   
-      <ng-container matColumnDef="state">
+      <ng-container matColumnDef="hectares">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Hectares </th>
         <td mat-cell *matCellDef="let data"> {{ data.hectares }} </td>
       </ng-container>
@@ -31,11 +34,20 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Longitude </th>
         <td mat-cell *matCellDef="let data"> {{ data.longitude }} </td>
       </ng-container>
+      
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+        <td mat-cell *matCellDef="let data"> {{ data.date }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="precipitation">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total precipitation </th>
+        <td mat-cell *matCellDef="let data"> {{ data.totalPrecipitation }} </td>
+      </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; sticky: true" ></tr>
     </table>
-
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[4, 8, 16, 100]"></mat-paginator>
   </div>
 </div>

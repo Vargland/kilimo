@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IUserData, USER_DATA_MOCKED } from './mock-data'
+import { IUserData, USER_DATA_MOCKED } from '../mock-data'
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({

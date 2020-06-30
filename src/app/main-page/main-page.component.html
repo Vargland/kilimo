@@ -1,3 +1,8 @@
 <div class="main-page">
-  <table-component [dataSource]="dataUser"></table-component>
+  <div class="main-page__table">
+    <table-component
+      [dataSource]="dataUser"
+      [displayedColumns]="displayedColumns">
+    </table-component>
+  </div>
 </div>

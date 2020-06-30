@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableComponent } from './table-component.component';
+import { PrecipitationPageComponent } from './precipitation-page.component';
 
-describe('TableComponentComponent', () => {
-  let component: TableComponent;
-  let fixture: ComponentFixture<TableComponent>;
+describe('PrecipitationPageComponent', () => {
+  let component: PrecipitationPageComponent;
+  let fixture: ComponentFixture<PrecipitationPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableComponent ]
+      declarations: [ PrecipitationPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TableComponent);
+    fixture = TestBed.createComponent(PrecipitationPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
