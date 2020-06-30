@@ -1,0 +1,26 @@
+<div  class="precipitation-page">
+    <div class="precipitation-page__container">
+      <div class="precipitation-page__image">
+        <mat-spinner *ngIf="!currentField.image"></mat-spinner>
+        <img *ngIf="currentField.image" src="{{ currentField.image }}" alt="">
+      </div>
+      <div class="precipitation-page__text">
+        <div class="precipitation-page__text-top">
+          <span class="precipitation-page__text__field-name"> {{ currentField.fieldName }} </span>
+        </div>
+        <div class="precipitation-page__text-bottom">
+          <span> {{ currentField.latitude }} </span>
+          <span> {{ currentField.longitude }} </span>
+        </div>
+      </div>
+    <div>
+      <span class="precipitation-page__footer"></span>
+    </div>
+    <div class="precipitation-page__table">
+      <table-component 
+        [dataSource]="precipitationData"
+        [displayedColumns]="displayedColumns">
+      </table-component>
+    </div>
+  
+</div>
