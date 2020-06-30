@@ -16,13 +16,12 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) public paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) public sort: MatSort;
 
-  @Input() public dataSource: Observable<any[]>
+  @Input() public dataSource: Observable<IUserData[]>
   @Input() public displayedColumns: string[];
 
-  constructor(private router: Router) { }
-
   public matTableDataSource: MatTableDataSource<IUserData>
-  public isSorteable: boolean;
+
+  constructor(private router: Router) { }
 
   public ngOnInit(): void { 
     this.dataSource.subscribe((dataSource) => {

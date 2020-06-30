@@ -1,12 +1,10 @@
 .table-component {
-  overflow: auto;
-
   &__search-bar {
-    font-size: 14px;
-    padding-left: 1em;
-    display: flex;
-    justify-content: space-between;
     background-color: white;
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    padding-left: 1em;
 
     &__input {
       width: 35%;
@@ -14,8 +12,8 @@
   }
 
   &__table {
-    width: 100%; 
     height: 100%;
+    width: 100%; 
 
     &-image {
       height: 15em;

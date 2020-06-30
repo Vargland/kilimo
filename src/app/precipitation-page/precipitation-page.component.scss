@@ -1,45 +1,39 @@
 .precipitation-page {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   align-items: center;
-  display: flex;
   justify-content: center;
-  
+  position: absolute;
+  width: 100%;
+
+  &__forecast {
+    display: inline-flex;
+    width: 100%;
+  }
+
   &__container {
-    position: relative;
-    display: flex;
-    width: 75%;
+    padding: 0 0.5em 0;
+  }
+
+  &__image-text { 
+    padding: 1em 0.5em 0.5em 0.5em;
+    width: 100%;
   }
 
   &__image {
+    padding-bottom: 0.5em;
+    width: 100%;
+
     img {
-      width: 350px;
-      height: 100%;
+      height: 278px;
+      width: 100%;
     }
   }
 
   &__text {
-    background-color: black;
-    opacity: 0.7;
-    bottom: 10%;
-    position: absolute;
-    left: 0;
-    color: white;
-    padding-left: 1rem;
-    padding-right: 1rem;
-
-    &__field-name {
-      font-weight: bold;
-      font-size: 3rem;
-    }
+    text-align: center;
 
     &-bottom {
-      font-size: 1rem;
-      text-align: center;
       font: small-caption;
+      text-align: center;
 
       span {
         padding: 0 1rem;
@@ -48,9 +42,6 @@
   }
 
   &__table {
-    background-color: white;
-    width: inherit;
-    height: 312px;
+    width: 100%
   }
-  
 }

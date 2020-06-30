@@ -26,8 +26,7 @@ export class MainPageComponent implements OnInit {
     this._mainPageService.userData$
       .pipe(
         filter((userData) => userData !== undefined),
-        // TODO: FIX THAT any
-        map((userData: IUserData[]): any => this._userData$.next(userData))
+        map((userData: IUserData[]) => this._userData$.next(userData))
       ).subscribe();
   }
 }

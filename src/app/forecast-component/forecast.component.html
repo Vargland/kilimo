@@ -1,0 +1,39 @@
+<div class="forecast">
+  <div *ngFor="let forecast of forecastItem"class="forecast__container">
+    <mat-card>
+      <div class="forecast__container-date">
+        <span> {{ forecast.date ?  forecast.date : "Today" }} </span>
+      </div>
+      <div class="forecast__container-temp-icon">
+        <div class="forecast__container-icon">
+          <span class="material-icons"> wb_sunny </span>
+        </div>
+        <div class="forecast__container-temp">
+          <h1> {{ forecast.temp ? forecast.temp : forecast.max }}°C </h1>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="forecast__container-chance-humidity">
+        <div class="forecast__container-chance">
+          <div> Chance of rain </div>
+          <h1> {{ forecast.chanceOfRain }}% </h1>
+        </div>
+        <div class="forecast__container-humidity">
+          <div> Humidity </div>
+          <h1> {{ forecast.humidity }}% </h1>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="forecast__container-min-max">
+        <div class="forecast__container-min">
+          <div> Min </div>
+          <h1> {{ forecast.min }}° C </h1>
+        </div>
+        <div class="forecast__container-max">
+          <div> Max </div>
+          <h1> {{ forecast.max }}° C </h1>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

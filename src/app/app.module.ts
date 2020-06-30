@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 /**
  * COMPONENTS
@@ -20,6 +22,7 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { TableComponent } from './table-component/table-component.component';
 import { PrecipitationPageComponent } from './precipitation-page/precipitation-page.component';
+import { ForecastComponent } from './forecast-component/forecast.component';
 
 const routes: Routes = [
   {
@@ -29,7 +32,6 @@ const routes: Routes = [
   {
     path: 'precipitation/:id',
     component: PrecipitationPageComponent,
-    
   }
 ]
 
@@ -39,6 +41,7 @@ const routes: Routes = [
     MainPageComponent,
     TableComponent,
     PrecipitationPageComponent,
+    ForecastComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,10 +53,10 @@ const routes: Routes = [
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
+    MatCardModule,
+    MatDividerModule,
   ],
   providers: [],
-  bootstrap: [
-    AppComponent,
-  ]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

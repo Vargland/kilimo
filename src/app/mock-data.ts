@@ -16,6 +16,21 @@ export interface IPrecipitation {
   totalPrecipitation: number,
 }
 
+export interface IForecast {
+  id: number,
+  currentWeather: IForecastInfo,
+  forecast: IForecastInfo[],
+}
+
+export interface IForecastInfo {
+  date?: string,
+  temp?: number,
+  chanceOfRain: number,
+  humidity: number,
+  min: number,
+  max: number,
+}
+
 export const USER_DATA_MOCKED: IUserData[] = [
   {
     id: 1,
@@ -39,7 +54,7 @@ export const USER_DATA_MOCKED: IUserData[] = [
       {
         date: '20/06/2020',
         totalPrecipitation: 0,
-      }
+      },
      ],
   },
   {
@@ -144,7 +159,7 @@ export const USER_DATA_MOCKED: IUserData[] = [
      ],
   },
   {
-    id: 1,
+    id: 6,
     country: 'Peru',
     state: 'Puno',
     currentDate: '23/06/2020',
@@ -169,7 +184,7 @@ export const USER_DATA_MOCKED: IUserData[] = [
      ],
   },
   {
-    id: 1,
+    id: 7,
     country: 'Argentina',
     state: 'Cordoba',
     currentDate: '23/06/2020',
@@ -193,4 +208,41 @@ export const USER_DATA_MOCKED: IUserData[] = [
       }
      ],
   },
+]
+
+export const FORECAST: IForecast[] = [
+  {
+    id: 1,
+    currentWeather:
+      {
+        temp: 20,
+        chanceOfRain: 10,
+        humidity: 67,
+        min: 10,
+        max: 25,
+      },
+    forecast: [
+      {
+        date: '24/06/2020',
+        chanceOfRain: 20,
+        humidity: 80,
+        min: 12,
+        max: 25,
+      },
+      {
+        date: '25/06/2020',
+        chanceOfRain: 90,
+        humidity: 90,
+        min: 13,
+        max: 27,
+      },
+      {
+        date: '26/06/2020',
+        chanceOfRain: 98,
+        humidity: 97,
+        min: 15,
+        max: 29,
+      },
+    ],
+  }
 ]
