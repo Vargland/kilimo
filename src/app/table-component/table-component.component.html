@@ -6,7 +6,6 @@
     </mat-form-field>
   </div>
   <div class="mat-elevation-z8">
-    
     <table mat-table [dataSource]="matTableDataSource" class="table-component__table" matSort>
       <ng-container matColumnDef="thumbnail">
         <th mat-header-cell *matHeaderCellDef> Map </th>
@@ -44,7 +43,6 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Total precipitation </th>
         <td mat-cell *matCellDef="let data"> {{ data.totalPrecipitation }} </td>
       </ng-container>
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns; sticky: true" ></tr>
     </table>

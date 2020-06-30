@@ -1,9 +1,8 @@
 .main-page {
-  background-color: lavender;
-  
   &__table {
-    margin: 0 auto;
     height: 100%;
+    margin: 0 auto;
+    padding: 1em;
     width: 75%;
   }
 }

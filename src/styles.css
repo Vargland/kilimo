@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { 
+  height: 100%;
+  background: rgba(52,151,244,1);
+  background: -moz-linear-gradient(-45deg, rgba(52,151,244,1) 14%, rgba(41,142,242,1) 26%, rgba(12,117,237,1) 58%, rgba(16,119,235,1) 67%, rgba(32,124,229,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(14%, rgba(52,151,244,1)), color-stop(26%, rgba(41,142,242,1)), color-stop(58%, rgba(12,117,237,1)), color-stop(67%, rgba(16,119,235,1)), color-stop(100%, rgba(32,124,229,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(52,151,244,1) 14%, rgba(41,142,242,1) 26%, rgba(12,117,237,1) 58%, rgba(16,119,235,1) 67%, rgba(32,124,229,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(52,151,244,1) 14%, rgba(41,142,242,1) 26%, rgba(12,117,237,1) 58%, rgba(16,119,235,1) 67%, rgba(32,124,229,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(52,151,244,1) 14%, rgba(41,142,242,1) 26%, rgba(12,117,237,1) 58%, rgba(16,119,235,1) 67%, rgba(32,124,229,1) 100%);
+  background: linear-gradient(135deg, rgba(52,151,244,1) 14%, rgba(41,142,242,1) 26%, rgba(12,117,237,1) 58%, rgba(16,119,235,1) 67%, rgba(32,124,229,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3497f4', endColorstr='#207ce5', GradientType=1 )
+ }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

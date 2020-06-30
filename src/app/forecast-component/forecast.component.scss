@@ -1,0 +1,70 @@
+.forecast {
+  display: inline-flex;
+
+  &__container {
+    padding: 1em 0 0.5em 0.5em;
+
+    &-temp-icon {
+      display: grid;
+      font-size: 1em;
+      grid-template-columns: 125px 125px;
+      padding: 1em 0;
+      text-align: center
+    }
+
+    &-temp {
+      color: black;
+      font-size: 20px;
+    }
+
+    &-icon {
+      color: orangered;
+
+      span {
+        font-size: 100px;
+      }
+    }
+
+    &-chance-humidity {
+      display: grid;
+      font-size: 1em;
+      grid-template-columns: 125px 125px;
+      padding: 1em 0;
+      width: 100%;
+    }
+
+    &-chance {
+      text-align: -webkit-center;
+    }
+
+    &-humidity {
+      text-align: -webkit-center;
+    }
+
+    &-min-max {
+      display: grid;
+      font-size: 1em;
+      grid-template-columns: 125px 125px;
+      padding: 1em 0;
+      width: 100%;
+    }
+
+    &-min {
+      text-align: -webkit-center;
+    }
+
+    &-max {
+      text-align: -webkit-center;
+    }
+
+    &-date {
+      color: grey;
+      font-style: italic;
+      text-align: center;
+    }
+  }
+
+  .mat-card {
+    width: 250px;
+  }
+}
