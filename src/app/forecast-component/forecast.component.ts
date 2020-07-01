@@ -22,8 +22,6 @@ export class ForecastComponent implements OnInit {
       if (item.currentWeather) this.forecastItem.push(item.currentWeather);
       if (item.forecast.length) this._getNextForecast(item.forecast);
     });
-
-    console.log(this.forecastItem)
   };
 
   private _getNextForecast(nextForecast) {
