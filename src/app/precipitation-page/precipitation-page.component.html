@@ -4,19 +4,16 @@
     <div class="precipitation-page__image-text">
       <div class="precipitation-page__image">
         <mat-card>
-          <mat-spinner *ngIf="!currentField.image"></mat-spinner>
-          <img *ngIf="currentField.image" src="{{ currentField.image }}" alt="">
-        </mat-card>
-      </div>
-      <div class="precipitation-page__text">
-        <mat-card>
-          <div class="precipitation-page__text-top">
-            <h1 class="precipitation-page__text__field-name"> {{ currentField.fieldName }} </h1>
-          </div>
-          <div class="precipitation-page__text-bottom">
-            <span> {{ currentField.latitude }} </span>
-            <span> {{ currentField.longitude }} </span>
-          </div>
+          <mat-spinner *ngIf="!currentField"></mat-spinner>
+          <google-map
+            height="420px"
+            width="100%"
+            [zoom]="zoom"
+            [center]="getCoordinates(currentField)">
+          <map-marker #marker
+            [position]="getCoordinates(currentField)">
+          </map-marker>
+        </google-map>
         </mat-card>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { MapInfoWindow } from '@angular/google-maps';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -15,11 +16,14 @@ import { Router } from '@angular/router';
 export class TableComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) public paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) public sort: MatSort;
+  @ViewChild(MapInfoWindow, {static: false}) public infoWindow: MapInfoWindow;
 
   @Input() public dataSource: Observable<IUserData[]>
   @Input() public displayedColumns: string[];
 
   public matTableDataSource: MatTableDataSource<IUserData>
+  public mapProperties: any;
+  public zoom: number = 10;
 
   constructor(private router: Router) { }
 
@@ -43,5 +47,12 @@ export class TableComponent implements OnInit {
 
   public goToPage(id: number) {
     this.router.navigate(['precipitation', id]);
+  }
+
+  public getCoordinates(data: IUserData) {
+    return {
+      lat: data.latitude,
+      lng: data.longitude
+    }
   }
 }
