@@ -18,6 +18,7 @@ export class PrecipitationPageComponent implements OnInit {
   @Output() public forecast: IPrecipitation[];
 
   public currentField: IUserData;
+  public zoom: number = 10;
 
   private _currentId: number;
   private _currentField$: Observable<IUserData>;
@@ -49,5 +50,12 @@ export class PrecipitationPageComponent implements OnInit {
     this._precipitationPageService.getCurrentField(this._currentId);
     this._precipitationPageService.getForecast();
     this.displayedColumns = ['date', 'precipitation'];
+  }
+
+  public getCoordinates(currentField) {
+    return {
+      lat: currentField.latitude,
+      lng: currentField.longitude
+    }
   }
 }

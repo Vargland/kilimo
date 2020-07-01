@@ -1,6 +1,10 @@
+/**
+ * ANGULAR DEPENDENCIES
+ */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 /**
  * ANGULAR MATERIAL DEPENDENCIES
@@ -55,8 +59,9 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     MatCardModule,
     MatDividerModule,
+    GoogleMapsModule,
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
