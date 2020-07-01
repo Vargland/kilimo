@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+
 export interface IUserData {
   id: number,
   country?: string,
@@ -36,7 +38,7 @@ export const USER_DATA_MOCKED: IUserData[] = [
     id: 1,
     country: 'Argentina',
     state: 'Cordoba',
-    currentDate: '23/06/2020',
+    currentDate:  moment().format('dddd Do'),
     longitude: -32.416668,
     latitude: -64.183334,
     fieldName: 'Molinos',
@@ -44,15 +46,15 @@ export const USER_DATA_MOCKED: IUserData[] = [
     image: 'https://placeimg.com/640/480/any',
     precipitationInfo: [
       {
-        date: '22/06/2020',
+        date: moment().subtract(1, 'days').format('dddd Do'),
         totalPrecipitation: 5000,
       },
       {
-        date: '21/06/2020',
+        date:  moment().subtract(2, 'days').format('dddd Do'),
         totalPrecipitation: 1000,
       },
       {
-        date: '20/06/2020',
+        date:  moment().subtract(3, 'days').format('dddd Do'),
         totalPrecipitation: 0,
       },
      ],
@@ -69,18 +71,18 @@ export const USER_DATA_MOCKED: IUserData[] = [
     image: 'https://placeimg.com/640/480/any',
     precipitationInfo: [
       {
-        date: '22/06/2020',
+        date: moment().subtract(1, 'days').format('dddd Do'),
         totalPrecipitation: 5000,
       },
       {
-        date: '21/06/2020',
+        date: moment().subtract(2, 'days').format('dddd Do'),
         totalPrecipitation: 1000,
       },
       {
-        date: '20/06/2020',
+        date: moment().subtract(3, 'days').format('dddd Do'),
         totalPrecipitation: 0,
       }
-     ],
+    ],
   },
   {
     id: 3,
@@ -92,21 +94,20 @@ export const USER_DATA_MOCKED: IUserData[] = [
     fieldName: 'Fantasia 1',
     image: 'https://placeimg.com/640/480/any',
     hectares: 3200,
-    
     precipitationInfo: [
       {
-        date: '22/06/2020',
+        date: moment().subtract(1, 'days').format('dddd Do'),
         totalPrecipitation: 5000,
       },
       {
-        date: '21/06/2020',
+        date: moment().subtract(2, 'days').format('dddd Do'),
         totalPrecipitation: 1000,
       },
       {
-        date: '20/06/2020',
+        date: moment().subtract(3, 'days').format('dddd Do'),
         totalPrecipitation: 0,
       }
-     ],
+    ],
   },
   {
     id: 4,
@@ -120,18 +121,18 @@ export const USER_DATA_MOCKED: IUserData[] = [
     image: 'https://placeimg.com/640/480/any',
     precipitationInfo: [
       {
-        date: '22/06/2020',
+        date: moment().subtract(1, 'days').format('dddd Do'),
         totalPrecipitation: 5000,
       },
       {
-        date: '21/06/2020',
+        date: moment().subtract(2, 'days').format('dddd Do'),
         totalPrecipitation: 1000,
       },
       {
-        date: '20/06/2020',
+        date: moment().subtract(3, 'days').format('dddd Do'),
         totalPrecipitation: 0,
       }
-     ],
+    ],
   },
   {
     id: 5,
@@ -145,18 +146,18 @@ export const USER_DATA_MOCKED: IUserData[] = [
     image: 'https://placeimg.com/640/480/any',
     precipitationInfo: [
       {
-        date: '22/06/2020',
+        date: moment().subtract(1, 'days').format('dddd Do'),
         totalPrecipitation: 5000,
       },
       {
-        date: '21/06/2020',
+        date: moment().subtract(2, 'days').format('dddd Do'),
         totalPrecipitation: 1000,
       },
       {
-        date: '20/06/2020',
+        date: moment().subtract(3, 'days').format('dddd Do'),
         totalPrecipitation: 0,
       }
-     ],
+    ],
   },
   {
     id: 6,
@@ -170,18 +171,18 @@ export const USER_DATA_MOCKED: IUserData[] = [
     image: 'https://placeimg.com/640/480/any',
     precipitationInfo: [
       {
-        date: '22/06/2020',
+        date: moment().subtract(1, 'days').format('dddd Do'),
         totalPrecipitation: 5000,
       },
       {
-        date: '21/06/2020',
+        date: moment().subtract(2, 'days').format('dddd Do'),
         totalPrecipitation: 1000,
       },
       {
-        date: '20/06/2020',
+        date: moment().subtract(3, 'days').format('dddd Do'),
         totalPrecipitation: 0,
       }
-     ],
+    ],
   },
   {
     id: 7,
@@ -195,18 +196,18 @@ export const USER_DATA_MOCKED: IUserData[] = [
     image: 'https://placeimg.com/640/480/any',
     precipitationInfo: [
       {
-        date: '22/06/2020',
+        date: moment().subtract(1, 'days').format('dddd Do'),
         totalPrecipitation: 5000,
       },
       {
-        date: '21/06/2020',
+        date: moment().subtract(2, 'days').format('dddd Do'),
         totalPrecipitation: 1000,
       },
       {
-        date: '20/06/2020',
+        date: moment().subtract(3, 'days').format('dddd Do'),
         totalPrecipitation: 0,
       }
-     ],
+    ],
   },
 ]
 
@@ -215,6 +216,7 @@ export const FORECAST: IForecast[] = [
     id: 1,
     currentWeather:
       {
+        date: moment().format('[Today: ]dddd Do'),
         temp: 20,
         chanceOfRain: 10,
         humidity: 67,
@@ -223,21 +225,21 @@ export const FORECAST: IForecast[] = [
       },
     forecast: [
       {
-        date: '24/06/2020',
+        date: moment().add(1, 'days').format('dddd Do'),
         chanceOfRain: 20,
         humidity: 80,
         min: 12,
         max: 25,
       },
       {
-        date: '25/06/2020',
+        date: moment().add(2, 'days').format('dddd Do'),
         chanceOfRain: 90,
         humidity: 90,
         min: 13,
         max: 27,
       },
       {
-        date: '26/06/2020',
+        date: moment().add(3, 'days').format('dddd Do'),
         chanceOfRain: 98,
         humidity: 97,
         min: 15,
