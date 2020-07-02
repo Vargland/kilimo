@@ -32,7 +32,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
       ).subscribe();
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this._destroyed$.next();
   }
 }

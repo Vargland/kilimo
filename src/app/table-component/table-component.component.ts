@@ -8,6 +8,11 @@ import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { tap, takeUntil } from 'rxjs/operators';
 
+export interface ICoordinates {
+  lat: number,
+  lng: number,
+}
+
 @Component({
   selector: 'table-component',
   templateUrl: './table-component.component.html',
@@ -42,7 +47,7 @@ export class TableComponent implements OnInit, OnDestroy {
       ).subscribe();
   }
 
-  public applyFilter(event: Event) {
+  public applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.matTableDataSource.filter = filterValue.trim().toLowerCase();
 
@@ -51,18 +56,18 @@ export class TableComponent implements OnInit, OnDestroy {
     }
   }
 
-  public goToPage(id: number) {
+  public goToPage(id: number): void {
     this.router.navigate(['precipitation', id]);
   }
 
-  public getCoordinates(data: IUserData) {
+  public getCoordinates(data: IUserData): ICoordinates {
     return {
       lat: data.latitude,
       lng: data.longitude
     }
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this._destroyed$.next();
   }
 }

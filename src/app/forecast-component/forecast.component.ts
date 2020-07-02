@@ -17,14 +17,14 @@ export class ForecastComponent implements OnInit {
     this._getForecast();
   }
 
-  private _getForecast() {
+  private _getForecast(): void {
     this.forecast.map((item) => {
       if (item.currentWeather) this.forecastItem.push(item.currentWeather);
       if (item.forecast.length) this._getNextForecast(item.forecast);
     });
   };
 
-  private _getNextForecast(nextForecast) {
+  private _getNextForecast(nextForecast: IForecastInfo[]): any {
     return nextForecast.map(next => this.forecastItem.push(next))
   }
 }

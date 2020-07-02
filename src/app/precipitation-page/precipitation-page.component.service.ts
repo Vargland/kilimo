@@ -1,5 +1,5 @@
 import { BehaviorSubject, Observable } from 'rxjs';
-import { FORECAST, IUserData, IForecast,USER_DATA_MOCKED } from '../mock-data';
+import { FORECAST, IUserData, IForecast, USER_DATA_MOCKED } from '../mock-data';
 
 export class PrecipitationPageService {
   public currentField$: Observable<any>;

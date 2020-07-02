@@ -5,6 +5,11 @@ import { filter, tap, takeUntil } from 'rxjs/operators';
 import { IUserData, IPrecipitation } from '../mock-data'
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
 
+export interface ICoordinates {
+  lat: number,
+  lng: number,
+}
+
 @Component({
   selector: 'precipitation-page',
   templateUrl: './precipitation-page.component.html',
@@ -39,11 +44,11 @@ export class PrecipitationPageComponent implements OnInit, OnDestroy {
         takeUntil(this._destroyed$),
       );
     this._forecast$ = this._precipitationPageService.forecast$
-        .pipe(
-          filter((forecast: IPrecipitation) => forecast !== undefined),
-          tap((forecast: any) => this.forecast = forecast),
-          takeUntil(this._destroyed$),
-        );
+      .pipe(
+        filter((forecast: IPrecipitation) => forecast !== undefined),
+        tap((forecast: any) => this.forecast = forecast),
+        takeUntil(this._destroyed$),
+      );
     this.precipitationData = this._currentField.asObservable();
   }
 
@@ -55,7 +60,7 @@ export class PrecipitationPageComponent implements OnInit, OnDestroy {
     this.displayedColumns = ['date', 'precipitation'];
   }
 
-  public getCoordinates(currentField) {
+  public getCoordinates(currentField): ICoordinates {
     return {
       lat: currentField.latitude,
       lng: currentField.longitude
