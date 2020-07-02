@@ -1,9 +1,9 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PrecipitationPageService } from './precipitation-page.component.service'
-import { filter, tap } from 'rxjs/operators';
+import { filter, tap, takeUntil } from 'rxjs/operators';
 import { IUserData, IPrecipitation } from '../mock-data'
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'precipitation-page',
@@ -12,7 +12,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providers: [ PrecipitationPageService ]
 })
 
-export class PrecipitationPageComponent implements OnInit {
+export class PrecipitationPageComponent implements OnInit, OnDestroy {
   @Output() public displayedColumns: string[];
   @Output() public precipitationData: Observable<any>;
   @Output() public forecast: IPrecipitation[];
@@ -24,6 +24,7 @@ export class PrecipitationPageComponent implements OnInit {
   private _currentField$: Observable<IUserData>;
   private _currentField: BehaviorSubject<any> = new BehaviorSubject<any>(undefined)
   private _forecast$: Observable<IPrecipitation[]>
+  private _destroyed$ = new Subject<void>();
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -35,11 +36,13 @@ export class PrecipitationPageComponent implements OnInit {
         filter((field: IUserData) => field !== undefined),
         tap((field: IUserData) => this.currentField = field),
         tap((field: IUserData) => this._currentField.next(field.precipitationInfo)),
+        takeUntil(this._destroyed$),
       );
     this._forecast$ = this._precipitationPageService.forecast$
         .pipe(
           filter((forecast: IPrecipitation) => forecast !== undefined),
-          tap((forecast: any) => this.forecast = forecast)
+          tap((forecast: any) => this.forecast = forecast),
+          takeUntil(this._destroyed$),
         );
     this.precipitationData = this._currentField.asObservable();
   }
@@ -57,5 +60,9 @@ export class PrecipitationPageComponent implements OnInit {
       lat: currentField.latitude,
       lng: currentField.longitude
     }
+  }
+
+  ngOnDestroy(): void {
+    this._destroyed$.next();
   }
 }

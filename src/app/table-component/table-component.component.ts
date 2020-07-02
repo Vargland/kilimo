@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, OnDestroy } from '@angular/core';
 import { MapInfoWindow } from '@angular/google-maps';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { IUserData } from '../mock-data';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { tap, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'table-component',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./table-component.component.scss']
 })
 
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator, { static: true }) public paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) public sort: MatSort;
   @ViewChild(MapInfoWindow, {static: false}) public infoWindow: MapInfoWindow;
@@ -24,19 +25,24 @@ export class TableComponent implements OnInit {
   public matTableDataSource: MatTableDataSource<IUserData>
   public mapProperties: any;
   public zoom: number = 10;
+  
+  private _destroyed$ = new Subject<void>();
 
   constructor(private router: Router) { }
 
   public ngOnInit(): void { 
-    this.dataSource.subscribe((dataSource) => {
-      this.matTableDataSource = new MatTableDataSource(dataSource);
-      this.matTableDataSource.sort = this.sort;
-      this.matTableDataSource.paginator = this.paginator;
-    });
+    this.dataSource
+      .pipe(
+        tap((dataSource: IUserData[]): void => {
+          this.matTableDataSource = new MatTableDataSource(dataSource);
+          this.matTableDataSource.sort = this.sort;
+          this.matTableDataSource.paginator = this.paginator;
+        }),
+        takeUntil(this._destroyed$),
+      ).subscribe();
   }
 
   public applyFilter(event: Event) {
-    // TODO: FILTER ONLY BY NAME
     const filterValue = (event.target as HTMLInputElement).value;
     this.matTableDataSource.filter = filterValue.trim().toLowerCase();
 
@@ -54,5 +60,9 @@ export class TableComponent implements OnInit {
       lat: data.latitude,
       lng: data.longitude
     }
+  }
+
+  public ngOnDestroy() {
+    this._destroyed$.next();
   }
 }

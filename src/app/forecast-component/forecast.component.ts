@@ -9,7 +9,7 @@ import { IForecast, IForecastInfo} from '../mock-data';
 export class ForecastComponent implements OnInit {
   @Input() public forecast: IForecast[];
 
-  public forecastItem: any = [];
+  public forecastItem: IForecastInfo[] = [];
 
   constructor() { }
 
