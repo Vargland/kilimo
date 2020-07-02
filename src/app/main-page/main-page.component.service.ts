@@ -15,7 +15,7 @@ export class MainPageService {
     this.userData$ = this._userData$.asObservable()
   }
 
-  public getUserData(): void {
+  public getUserData(): any {
     return this._userData$.next(USER_DATA_MOCKED);
   }
 }
